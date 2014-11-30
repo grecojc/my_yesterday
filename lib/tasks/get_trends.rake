@@ -1,6 +1,6 @@
 task :get_trends => :environment do
 	
-$twitter.trends(id = 23424977).each.to_a
+all_trends = $twitter.trends(id = 23424977).each.to_a
 
 x = 0
 while x < 10
