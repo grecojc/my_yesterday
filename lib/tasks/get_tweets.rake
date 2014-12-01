@@ -15,7 +15,7 @@ task :get_tweets => :environment do
 	x = 0
 	y = 0
 	while x < 200 and y < num_news_sources
-		unless Tweet.exists?(:tweet_id => all_news_source_tweets[y][x].id.to_s)
+		unless Tweet.exists?(:tweet_id => all_news_source_tweets[y][x].id)
 		Tweet.create(:screen_name => all_news_source_tweets[y][x].user.screen_name, :text => all_news_source_tweets[y][x].text, :timestamp => all_news_source_tweets[y][x].created_at, :tweet_id => all_news_source_tweets[y][x].id)
 		end
 		x +=1
