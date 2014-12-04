@@ -4,12 +4,10 @@ task :get_trends => :environment do
 
 	x = 0
 	while x < 10
-		if Trend.exists?(:name => all_trends[x].name)
-		created_at = all_trends[x].created_at.to_date.in_time_zone('UTC')
-		unless Trend.exists?(:name => all_trends[x].name) and created_at == Time.now.to_date.in_time_zone('UTC')
+		unless Trend.exists?(:name => all_trends[x].name)
 		Trend.create(:name => all_trends[x].name)
-		end
 		end
 		x += 1
 	end
 end
+
