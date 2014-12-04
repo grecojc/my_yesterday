@@ -36,6 +36,8 @@ gem 'twitter'
 
 gem 'hirb'
 
+gem 'pry'
+
 
 
 # Use ActiveModel has_secure_password
