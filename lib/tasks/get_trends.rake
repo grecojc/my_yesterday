@@ -9,7 +9,7 @@ task :get_trends => :environment do
 		unless Trend.exists?(:name => all_trends[x].name) and created_at == Time.now.to_date.in_time_zone('UTC')
 		Trend.create(:name => all_trends[x].name)
 		end
-		x += 1
 		end
+		x += 1
 	end
 end
