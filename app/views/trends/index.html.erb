@@ -8,5 +8,12 @@
 		<td><%= trend.name %></td>
 		<td><%= trend.created_at %></td>
 	</tr>
+	<% trend.tweets.each do |tweet| %>
+	<tr>
+		<td><%= tweet.text %></td>
+		<td><%= tweet.screen_name %></td>
+	</tr>
+	<% end %>
 <% end %>
 </table>
+	
