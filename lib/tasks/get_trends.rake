@@ -7,9 +7,13 @@ task :get_trends => :environment do
 		trend_name = all_trends[x].name
 		trend_create = true
 		if Trend.exists?(:name => trend_name)
-		existing_trend = Trend.find_by name: trend_name
-			if existing_trend.created_at.to_date.in_time_zone("UTC") == Time.now.to_date.in_time_zone("UTC")
-			trend_create = false
+		existing_trends = Trend.where name: trend_name
+		y = 0
+		num_existing_trends = existing_trends.count
+			while y < num_existing_trends
+				if existing_trends[y].created_at.to_date.in_time_zone("UTC") == Time.now.to_date.in_time_zone("UTC")
+				trend_create = false
+				end
 			end
 		end
 		unless trend_create == false
