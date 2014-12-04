@@ -1,0 +1,13 @@
+<table>
+	<tr>
+		<th>Tweets</th>
+	</tr>
+
+<% @tweets.each do |tweet| %>
+	<tr>
+		<td><%= tweet.screen_name %></td>
+		<td><%= tweet.text %></td>
+		<td><%= tweet.timestamp %></td>
+	</tr>
+<% end %>
+</table>
