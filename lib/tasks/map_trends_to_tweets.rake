@@ -9,10 +9,11 @@ task :map_trends_to_tweets => :environment do
 	x = 0
 	y = 0
 	while x < num_tweets
-		unless TrendTweet.exists?(:tweet_id => tweets[x].id, :trend_id => trends[y].id) 
-		if tweets[x].text.downcase.include? trends[y].name.downcase
-		TrendTweet.create(:tweet_id => tweets[x].id, :trend_id => trends[y].id)
-		end
+		current_tweet = tweets[x]
+		current_trend = trends[y]
+		if current_tweet.text.downcase.include? current_trend.name.downcase
+		current_tweet.trends << current_trend
+		current_tweet.save
 		end
 		y += 1
 		if y == (num_trends)
