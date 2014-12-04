@@ -14,6 +14,7 @@ task :get_trends => :environment do
 				if existing_trends[y].created_at.to_date.in_time_zone("UTC") == Time.now.to_date.in_time_zone("UTC")
 				trend_create = false
 				end
+				y += 1
 			end
 		end
 		unless trend_create == false
