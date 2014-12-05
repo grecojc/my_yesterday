@@ -7,7 +7,7 @@
 <% @trends.each do |trend| %>
 	<tr>
 		<td><b><%= trend.name %></b></td>
-		<td><%= trend.created_at %></td>
+		<td><%= trend.created_at.strftime('%l'':''%M'' ''%p') %></td>
 	</tr>
 	<% trend.tweets.each do |tweet| %>
 	<tr>
