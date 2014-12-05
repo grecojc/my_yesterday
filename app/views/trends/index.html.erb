@@ -5,7 +5,7 @@
 
 <% @trends.each do |trend| %>
 	<tr>
-		<b><td><%= trend.name %></td></b>
+		<td><%= trend.name %></td>
 		<td><%= trend.created_at %></td>
 	</tr>
 	<% trend.tweets.each do |tweet| %>
