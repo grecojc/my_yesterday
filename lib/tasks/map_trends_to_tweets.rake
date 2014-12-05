@@ -12,9 +12,10 @@ task :map_trends_to_tweets => :environment do
 		current_tweet = tweets[x]
 		current_trend = trends[y]
 		if current_tweet.text.downcase.include? current_trend.name.downcase
-		current_tweet.trends << current_trend
+		current_tweet.trends << current_trend unless current_tweet.trends.include?(current_trend)
 		current_tweet.save
 		end
+		
 		y += 1
 		if y == (num_trends)
 		x += 1
