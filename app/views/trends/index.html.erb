@@ -6,13 +6,13 @@
 
 <% @trends.each do |trend| %>
 	<tr>
-		<td><%= trend.created_at.strftime('%l'':''%M'' ''%p')%>  <b><%= trend.name %></b></td>
-		<td></td>
+		<td><b><%= trend.name %></b></td>
+		<td><%= trend.created_at.strftime('%l'':''%M'' ''%p')%></td>
 	</tr>
 	<% trend.tweets.each do |tweet| %>
 	<tr>
-		<td><%= tweet.text %></td>
-		<td><%= tweet.screen_name %></td>
+		<td><%= tweet.screen_name %>: <%= tweet.text %></td>
+		<td></td>
 	</tr>
 	<% end %>
 <% end %>
