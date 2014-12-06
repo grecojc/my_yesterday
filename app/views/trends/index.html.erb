@@ -4,7 +4,7 @@
 		<th><h3><%= @date %></h3></th>
 	</tr>
 
-<% @trends_yesterday.each do |trend| %>
+<% @trends.each do |trend| %>
 	<% if trend.tweets.count > 0 %>
 		<tr>
 			<td><b><%= trend.name %></b></td>
