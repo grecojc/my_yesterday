@@ -5,18 +5,23 @@
 	</tr>
 
 <% @trends.each do |trend| %>
-<% if trend.tweets.count > 0 %>
-	<tr>
-		<td><b><%= trend.name %></b></td>
-		<td><%= trend.created_at.strftime('%l'':''%M'' ''%p')%></td>
-	</tr>
-	<% trend.tweets.each do |tweet| %>
-	<tr>
-		<td><%= tweet.screen_name %>: <%= tweet.text %></td>
-		<td></td>
-	</tr>
+	<% if trend.tweets.count > 0 %>
+		<tr>
+			<td><b><%= trend.name %></b></td>
+			<td><%= trend.created_at.strftime('%l'':''%M'' ''%p')%></td>
+		</tr>
+		<% x = 0 %>
+		<% while x < 3 %>
+			<% if trend.tweets[x] %>
+			<% trend.tweets[x] %>
+				<tr>
+					<td><%= trend.tweets[x].screen_name %>: <%= trend.tweets[x].text %></td>
+					<td></td>
+				</tr>
+			<% end %>
+			<% x += 1 %>
+		<% end %>
 	<% end %>
-<% end %>
 <% end %>
 </table>
 </div>
