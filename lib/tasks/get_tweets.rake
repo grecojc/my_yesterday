@@ -20,8 +20,8 @@ task :get_tweets => :environment do
 		end
 		x +=1
 		if x == 199
-		y += 1				
-		x = 0
+			y += 1				
+			x = 0
 		end
 	end
 end

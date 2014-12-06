@@ -1,7 +1,7 @@
 task :map_trends_to_tweets => :environment do
 
-	tweets = Tweet.where("timestamp >= ? and timestamp < ?", Date.today.prev_day, Date.today)
-	trends = Trend.where("created_at >= ? and created_at < ?", Date.today.prev_day, Date.today)
+	tweets = Tweet.where("timestamp >= ? and timestamp < ?", DateTime.now.in_time_zone("EST").to_date.prev_day, DateTime.now.in_time_zone("EST").to_date)
+	trends = Trend.where("created_at >= ? and created_at < ?", DateTime.now.in_time_zone("EST").to_date.prev_day, DateTime.now.in_time_zone("EST").to_date)
 
 	num_tweets = tweets.count
 	num_trends = trends.count
