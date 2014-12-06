@@ -9,11 +9,13 @@
 		<td><b><%= trend.name %></b></td>
 		<td><%= trend.created_at.strftime('%l'':''%M'' ''%p')%></td>
 	</tr>
+	<% if trend.tweets.count > 0 %>
 	<% trend.tweets.each do |tweet| %>
 	<tr>
 		<td><%= tweet.screen_name %>: <%= tweet.text %></td>
 		<td></td>
 	</tr>
+	<% end %>
 	<% end %>
 <% end %>
 </table>
