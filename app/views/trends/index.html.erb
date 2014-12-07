@@ -15,7 +15,7 @@
 			<% if trend.tweets[x] %>
 			<% trend.tweets[x] %>
 				<tr>
-					<td><span class="screen_name">@<%= trend.tweets[x].screen_name %></span>: <%= trend.tweets[x].text %> <%= link_to "link", trend.tweets[x].url %> <%= image_tag 'bird.png' %></td>
+					<td><span class="screen_name">@<%= link_to "#{trend.tweets[x].screen_name}", "http://www.twitter.com/" + trend.tweets[x].screen_name %></span>: <%= trend.tweets[x].text %> <%= link_to "link", trend.tweets[x].url %> <%= image_tag 'bird.png' %></td>
 					<td></td>
 				</tr>
 			<% end %>
