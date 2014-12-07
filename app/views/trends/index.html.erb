@@ -15,7 +15,7 @@
 			<% if trend.tweets[x] %>
 			<% trend.tweets[x] %>
 				<tr>
-					<td><div style="color:blue;"><%= trend.tweets[x].screen_name %></div>: <%= trend.tweets[x].text %></td>
+					<td><div class="screen_name">@<%= trend.tweets[x].screen_name %></div><%= trend.tweets[x].text %></td>
 					<td></td>
 				</tr>
 			<% end %>
