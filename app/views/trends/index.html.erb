@@ -14,10 +14,8 @@
 		<% while x < 3 %>
 			<% if trend.tweets[x] %>
 			<% trend.tweets[x] %>
-			<% source = @newssources.where("screen_name = ?", trend.tweets[x].screen_name).all.to_a.map(&:serializable_hash) %>
-			<% avatar = source[0][:profile_image_url] %>
 				<tr>
-					<td><%=<img src=avatar/>%> <%= trend.tweets[x].screen_name %>: <%= trend.tweets[x].text %></td>
+					<td><%= trend.tweets[x].screen_name %>: <%= trend.tweets[x].text %></td>
 					<td></td>
 				</tr>
 			<% end %>
