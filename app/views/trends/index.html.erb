@@ -15,7 +15,7 @@
 			<% if trend.tweets[x] %>
 			<% trend.tweets[x] %>
 				<tr>
-					<td><%= image_tag @newssource.where("screen_name = ?", trend.tweets[x].screen_name).profile_image_url %> <%= trend.tweets[x].screen_name %>: <%= trend.tweets[x].text %></td>
+					<td><%= @newssource.where("screen_name = ?", trend.tweets[x].screen_name).profile_image_url %> <%= trend.tweets[x].screen_name %>: <%= trend.tweets[x].text %></td>
 					<td></td>
 				</tr>
 			<% end %>
