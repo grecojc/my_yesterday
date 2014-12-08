@@ -13,8 +13,10 @@ task :get_tweets => :environment do
 	x = 0
 	y = 0
 	while x < 200 and y < num_screen_names
-		unless Tweet.exists?(:source => all_news_source_tweets[y][x].attrs[:id_str])
-		Tweet.create(:screen_name => all_news_source_tweets[y][x].user.screen_name, :text => all_news_source_tweets[y][x].text, :timestamp => all_news_source_tweets[y][x].created_at, :source => all_news_source_tweets[y][x].attrs[:id_str], :url => all_news_source_tweets[y][x].urls[0].attrs[:url])
+		if all_news_source_tweets[y][x].nil? == false
+			unless Tweet.exists?(:source => all_news_source_tweets[y][x].attrs[:id_str])
+			Tweet.create(:screen_name => all_news_source_tweets[y][x].user.screen_name, :text => all_news_source_tweets[y][x].text, :timestamp => all_news_source_tweets[y][x].created_at, :source => all_news_source_tweets[y][x].attrs[:id_str], :url => all_news_source_tweets[y][x].urls[0].attrs[:url])
+			end
 		end
 		x +=1
 		if x == 199
