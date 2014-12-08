@@ -11,7 +11,7 @@ task :get_trends => :environment do
 			y = 0
 			num_existing_trends = existing_trends.count
 				while y < num_existing_trends
-					if existing_trends[y].created_at.in_time_zone("EST").to_date == DateTime.now.in_time_zone("EST").to_date
+					if existing_trends[y].created_at.ago(5 * 60 * 60).to_date == (Time.now.ago(5 * 60 * 60).to_date)
 					trend_create = false
 					end
 					y += 1
@@ -23,4 +23,3 @@ task :get_trends => :environment do
 		x += 1
 	end
 end
-
