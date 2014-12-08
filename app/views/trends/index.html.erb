@@ -12,12 +12,13 @@
 		</tr>
 		<% x = 0 %>
 		<% while x < 5 %>
-			<% unless trend.tweets[x].nil? == true %>
+			<% if trend.tweets[x].nil? == false %>
 				<% if trend.tweets[x] %>
 				<% trend.tweets[x] %>
 				<% news_source = @newssources.find_by screen_name: "#{trend.tweets[x].screen_name}" %>
+				<% news_source_image = news_source.profile_image_url
 					<tr>
-						<td><%= image_tag "#{news_source.profile_image_url}", height: "24", width: "24" %> <span class="screen_name">@<%= link_to "#{trend.tweets[x].screen_name}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}", :target => '_blank' %></span>: <span class="text"><%= link_to "#{trend.tweets[x].text}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}" + "/" + "#{trend.tweets[x].source}", :target => '_blank' %></span>  <%= image_tag 'bird.png' %> <span class="timestamp"><%= trend.tweets[x].timestamp.to_time.ago(5 * 60 * 60).strftime('%l'':''%M'' ''%p') %></span></td>
+						<td><%= image_tag "#{news_source_image}", height: "24", width: "24" %> <span class="screen_name">@<%= link_to "#{trend.tweets[x].screen_name}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}", :target => '_blank' %></span>: <span class="text"><%= link_to "#{trend.tweets[x].text}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}" + "/" + "#{trend.tweets[x].source}", :target => '_blank' %></span>  <%= image_tag 'bird.png' %> <span class="timestamp"><%= trend.tweets[x].timestamp.to_time.ago(5 * 60 * 60).strftime('%l'':''%M'' ''%p') %></span></td>
 						<td></td>
 					</tr>
 				<% end %>
