@@ -2,15 +2,12 @@ task :get_tweets => :environment do
 
 	news_source_screen_names = []
 	news_sources = NewsSource.all
-	num_news_sources = NewsSource.count
-	x = 0
-	while x < num_news_sources
-		news_source_screen_name = news_sources[x].screen_name
-		news_source_screen_names << news_source_screen_name
-		x += 1
+
+	news_sources.each do |news_source|
+		news_source_screen_names << news_source.screen_name
 	end
 
-	all_news_source_tweets = news_source_screen_names.map {|z| $twitter.user_timeline(z, count: 200)}
+	all_news_source_tweets = news_source_screen_names.map {|screen_name| $twitter.user_timeline(screen_name, count: 200)}
 
 	x = 0
 	y = 0
