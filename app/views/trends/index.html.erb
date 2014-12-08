@@ -22,10 +22,10 @@
 						<% text = trend.tweets[x].text %>
 							<% url = text.slice(URI.regexp(['http'])) %>
 						<% if url %>
-							<% text_with_links = text.gsub( url, '<a href="' + url + '">' + url + '</a>' ) %>
+							<% text = text.gsub( url, '<a href="' + url + '">' + url + '</a>' ) %>
 						<% end %>
 						<tr>
-							<td><%= image_tag "#{news_source_image}", height: "24", width: "24" %> <span class="screen_name">@<%= link_to "#{trend.tweets[x].screen_name}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}", :target => '_blank' %></span>: <span class="text"><%= link_to "#{text_with_links}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}" + "/" + "status/" + "#{trend.tweets[x].source}", :target => '_blank' %></span>  <%= image_tag 'bird.png' %> <span class="timestamp"><%= trend.tweets[x].timestamp.to_time.ago(5 * 60 * 60).strftime('%l'':''%M'' ''%p') %></span></td>
+							<td><%= image_tag "#{news_source_image}", height: "24", width: "24" %> <span class="screen_name">@<%= link_to "#{trend.tweets[x].screen_name}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}", :target => '_blank' %></span>: <span class="text"><%= "#{text}"%></span>  <%= image_tag 'bird.png' %> <span class="timestamp"><%= trend.tweets[x].timestamp.to_time.ago(5 * 60 * 60).strftime('%l'':''%M'' ''%p') %></span></td>
 							<td></td>
 						</tr>
 					<% end %>
