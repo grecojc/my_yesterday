@@ -1,10 +1,8 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
-  <div class="container">
-<h3><%= @date %></h3>
-  </div>
-</nav>
-
 <div class="container-fluid">
+
+<h3><%= @date %></h3>
+<p><%= link_to "view all news sources", news_sources_index_path %></p>
+
 <table class="table">
 
 <% @trends.each do |trend| %>

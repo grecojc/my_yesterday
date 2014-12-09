@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'news_sources/index'
+
   root 'trends#index'
   resources :trends do
     resources :tweets

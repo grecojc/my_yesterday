@@ -1,0 +1,14 @@
+<div class="container-fluid">
+<h3><%= "News Sources" %></h3>
+<table class="table">
+
+<% @newssources.each do |newssource| %>
+
+	<tr>
+		<td><p><b><%= image_tag newssource.profile_image_url, height: "24", width: "24" %> <%= link_to "@" + "#{newssource.screen_name}", "https://www.twitter.com/" + "#{newssource.screen_name}", :target => '_blank' %> <%= link_to "#{newssource.website}", newssource.website, :target => '_blank' %></b></td>
+	</tr>
+
+<% end %>
+</table>
+<button type="button" class="btn btn-default"><%= link_to "Back to Homepage", root_path %></button>
+</div>
