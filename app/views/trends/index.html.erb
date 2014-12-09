@@ -19,9 +19,10 @@
 					<% timestamp_formatted = trend.tweets[x].timestamp.to_time.ago(5 * 60 * 60).strftime('%l'':''%M'' ''%p') %>
 						<% unless news_source.nil? == true %>
 						<% news_source_image = news_source.profile_image_url %>
+						<% text_autolinked = auto_link("#{trend.tweets[x].text}") %>
 						<% end %>
 						<tr>
-							<td><%= image_tag "#{news_source_image}", height: "24", width: "24" %> <span class="screen_name">@<%= link_to "#{trend.tweets[x].screen_name}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}", :target => '_blank' %></span>: <span class="text"><%= auto_link("#{trend.tweets[x].text}") %></span>  <%= image_tag 'bird.png' %> <span class="timestamp"><%= link_to "#{timestamp_formatted}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}" + "/" + "status/" + "#{trend.tweets[x].source}", :target => '_blank' %></span></td>
+							<td><%= image_tag "#{news_source_image}", height: "24", width: "24" %> <span class="screen_name">@<%= link_to "#{trend.tweets[x].screen_name}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}", :target => '_blank' %></span>: <span class="text"><%= text_autolinked %></span>  <%= image_tag 'bird.png' %> <span class="timestamp"><%= link_to "#{timestamp_formatted}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}" + "/" + "status/" + "#{trend.tweets[x].source}", :target => '_blank' %></span></td>
 							<td></td>
 						</tr>
 					<% end %>
