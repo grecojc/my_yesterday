@@ -1,6 +1,9 @@
 <div class="container-fluid">
 
-<h3><%= @date %></h3>
+<div class="page-header">
+  <h1>Trending <small><%= @date %></small></h1>
+</div>
+
 <p><%= link_to "view all news sources", news_sources_index_path %></p>
 
 <table class="table">
