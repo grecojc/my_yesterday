@@ -21,7 +21,7 @@
 						<% news_source_image = news_source.profile_image_url %>
 						<% end %>
 						<tr>
-							<td><%= image_tag "#{news_source_image}", height: "24", width: "24" %> <span class="screen_name">@<%= link_to "#{trend.tweets[x].screen_name}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}", :target => '_blank' %></span>: <span class="text"><%= raw auto_link("#{trend.tweets[x].text}") %></span>  <%= image_tag 'bird.png' %> <span class="timestamp"><%= link_to "#{timestamp_formatted}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}" + "/" + "status/" + "#{trend.tweets[x].source}", :target => '_blank' %></span></td>
+							<td><%= image_tag "#{news_source_image}", height: "24", width: "24" %> <span class="screen_name">@<%= link_to "#{trend.tweets[x].screen_name}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}", :target => '_blank' %></span>: <span class="text"><%= raw auto_link("#{trend.tweets[x].text}", :target => '_blank') %></span>  <%= image_tag 'bird.png' %> <span class="timestamp"><%= link_to "#{timestamp_formatted}", "https://www.twitter.com/" + "#{trend.tweets[x].screen_name}" + "/" + "status/" + "#{trend.tweets[x].source}", :target => '_blank' %></span></td>
 							<td></td>
 						</tr>
 					<% end %>
