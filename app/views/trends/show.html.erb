@@ -10,7 +10,7 @@
 			<td><%= @trend.created_at.in_time_zone("EST").strftime('%l'':''%M'' ''%p')%></td>
 		</tr>
 		<% x = 0 %>
-		<% while x < 5 %>
+		<% while x < trend_tweet_count %>
 				<% if @trend.tweets[x] %>
 					<% @trend.tweets[x] %>
 					<% news_source = @newssources.find_by screen_name: "#{@trend.tweets[x].screen_name}" %>
