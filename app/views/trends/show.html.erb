@@ -1,0 +1,31 @@
+<div class="container-fluid">
+<table class="table">
+	<tr>
+		<th><h3><%= @date %></h3></th>
+	</tr>
+	<% if @trend.tweets.count > 0 %>
+	<% trend_tweet_count = @trend.tweets.count %>
+		<tr>
+			<td><b><%= @trend.name %></b></td>
+			<td><%= @trend.created_at.in_time_zone("EST").strftime('%l'':''%M'' ''%p')%></td>
+		</tr>
+		<% x = 0 %>
+		<% while x < 5 %>
+				<% if @trend.tweets[x] %>
+					<% @trend.tweets[x] %>
+					<% news_source = @newssources.find_by screen_name: "#{@trend.tweets[x].screen_name}" %>
+					<% timestamp_formatted = @trend.tweets[x].timestamp.to_time.ago(5 * 60 * 60).strftime('%l'':''%M'' ''%p') %>
+						<% unless news_source.nil? == true %>
+						<% news_source_image = news_source.profile_image_url %>
+						<% end %>
+						<tr>
+							<td><%= image_tag "#{news_source_image}", height: "24", width: "24" %> <span class="screen_name">@<%= link_to "#{@trend.tweets[x].screen_name}", "https://www.twitter.com/" + "#{@trend.tweets[x].screen_name}", :target => '_blank' %></span>: <span class="text"><%= raw auto_link("#{@trend.tweets[x].text}", :target => '_blank') %></span>  <%= image_tag 'bird.png' %> <span class="timestamp"><%= link_to "#{timestamp_formatted}", "https://www.twitter.com/" + "#{@trend.tweets[x].screen_name}" + "/" + "status/" + "#{@trend.tweets[x].source}", :target => '_blank' %></span></td>
+							<td></td>
+						</tr>
+					<% end %>
+				<% x += 1 %>
+		<% end %>
+	<% end %>
+</table>
+<button type="button" class="btn btn-default"><%= link_to "Back to Homepage", root_path %></button>
+</div>
