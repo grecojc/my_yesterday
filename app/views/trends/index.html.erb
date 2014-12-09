@@ -1,8 +1,14 @@
-<div class="container-fluid">
-<table class="table">
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
 	<tr>
 		<th><h3><%= @date %></h3></th>
 	</tr>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+<table class="table">
 
 <% @trends.each do |trend| %>
 	<% if trend.tweets.count > 0 %>
