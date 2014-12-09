@@ -8,7 +8,7 @@
 	<% if trend.tweets.count > 0 %>
 	<% trend_tweet_count = trend.tweets.count %>
 		<tr>
-			<td><b><%= link_to trend.name, trend %></b></td>
+			<span class="trend"><td><b><%= link_to trend.name, trend %></b></td></span>
 			<td><%= trend.created_at.in_time_zone("EST").strftime('%l'':''%M'' ''%p')%></td>
 		</tr>
 		<% x = 0 %>
