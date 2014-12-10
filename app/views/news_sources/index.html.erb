@@ -5,7 +5,7 @@
 <% @newssources.each do |newssource| %>
 
 	<tr>
-		<td><p><b><%= image_tag newssource.profile_image_url, height: "24", width: "24" %> <%= link_to "@" + "#{newssource.screen_name}", "https://www.twitter.com/" + "#{newssource.screen_name}", :target => '_blank' %> <span class="website">| <%= link_to "#{newssource.website}", newssource.website, :target => '_blank' %></span></b></td>
+		<td><%= image_tag newssource.profile_image_url, height: "24", width: "24" %> <%= link_to "@" + "#{newssource.screen_name}", "https://www.twitter.com/" + "#{newssource.screen_name}", :target => '_blank' %> <span class="website">| <%= link_to "#{newssource.website}", newssource.website, :target => '_blank' %></span></td>
 	</tr>
 
 <% end %>
